@@ -11,7 +11,7 @@ void Start()
 {
 Instantiate(player, transform.position, Quaternion.identity);
 InvokeRepeating("CreateEnemy", 1f, 3f);
-InvokeRepeating("CreateEnemy2", 1f, 3f);
+InvokeRepeating("CreateEnemy2", 3f, 2f);
 }
 // Update is called once per frame
 void Update()
@@ -24,6 +24,6 @@ Quaternion.identity);
 }
 void CreateEnemy2()
 {  
-    Instantiate(enemy2, new Vector3(16f, Random.Range(-8f, 8f), 0), Quaternion.identity);
+    Instantiate(enemy2, new Vector3(17f, Random.Range(-7f, 7f), 0), Quaternion.identity);
 }
 }
