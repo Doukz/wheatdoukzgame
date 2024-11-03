@@ -7,26 +7,28 @@ public class Player : MonoBehaviour
     // its access level: public or private
     // its type: int (5, 8, 36, etc.), float (2.5f, 3.7f, etc.)
     // its name: speed, playerSpeed --- Speed, PlayerSpeed
+    // optional: give it an initial value
     private float speed;
     private int lives = 3;
     private int score = 0;
     private float horizontalInput;
     private float verticalInput;
+
     public GameObject bullet;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         speed = 5f;
     }
-    
+
     // Update is called once per frame
     void Update()
     {
         Movement();
         Shooting();
     }
-    
+
     void Movement()
     {
         horizontalInput = Input.GetAxis("Horizontal");
@@ -40,11 +42,16 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x * -1, transform.position.y, 0);
         }
-    
-        if (transform.position.y > 8.5f || transform.position.y <= -8.5f)
+
+        if (transform.position.y > 1f)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y * -1, 0);
+            transform.position = new Vector3(transform.position.x, 1f);
         }
+
+        if (transform.position.y < -4f)
+        {
+            transform.position = new Vector3(transform.position.x, -4f);
+        }        
     }
 
     void Shooting()
@@ -57,4 +64,5 @@ public class Player : MonoBehaviour
             Instantiate(bullet, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
         }
     }
+
 }
