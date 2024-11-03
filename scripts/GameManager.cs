@@ -24,6 +24,6 @@ Quaternion.identity);
 }
 void CreateEnemy2()
 {  
-    Instantiate(enemy2, new Vector3(11f, Random.Range(-8f, 8f), 0), Quaternion.identity);
+    Instantiate(enemy2, new Vector3(16f, Random.Range(-8f, 8f), 0), Quaternion.identity);
 }
 }
