@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
         Instantiate(player, transform.position, Quaternion.identity);
         InvokeRepeating("CreateEnemyOne", 1f, 3f);
         CreateSky();
+        Createcoin();
+        ScheduleNextCoinSpawn();
         score = 0;
         scoreText.text = "Score: " + score;
 
@@ -47,6 +49,22 @@ public class GameManager : MonoBehaviour
         {
             Instantiate(cloud, transform.position, Quaternion.identity);
         }
+    }
+
+     void Createcoin()
+    {
+        if (coin != null)
+        {
+        Instantiate(coin, new Vector3(Random.Range(-12f, 12f), Random.Range(-8f, 8f), 0), Quaternion.identity);
+         ScheduleNextCoinSpawn();
+        }
+        
+    }
+
+    void ScheduleNextCoinSpawn()
+    {
+         randomInterval = Random.Range(6f, 8f);
+          Invoke("Createcoin", randomInterval);
     }
 
     public void EarnScore(int newScore)
