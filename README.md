@@ -7,3 +7,7 @@
 <h3>Week 12, Wyatt/yourfriendwheat has completed TASK 1 (Lives) and Star/Douks has completed TASK 2 (coin)</h3>
 
 <b>Week 12 folder is "Scripts" with a capitalized S at the start.</b>
+
+<h3>Week 13, Wyatt/yourfriendwheat has completed TASK 1 (Shield) and Star/Douks has completed TASK 2 (Powerup and down noises)</h3>
+
+<b>Week 13 material for Wyatt is in a branch titled "yourfriendwheat-week-13-branch-patch-1." I did not want to overwrite the coin scripts.</b>
