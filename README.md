@@ -10,4 +10,4 @@
 
 <h3>Week 13, Wyatt/yourfriendwheat has completed TASK 1 (Shield) and Star/Douks has completed TASK 2 (Powerup and down noises)</h3>
 
-<b>Week 13 material for Wyatt is in a branch titled "yourfriendwheat-week-13-branch-patch-1." I did not want to overwrite the coin scripts.</b>
+<b>Week 13 material for Wyatt is in a branch titled "yourfriendwheat-week-13-branch-patch-1." I did not want to overwrite the coin scripts. Star has also added Week 13 material to the branch!</b>
