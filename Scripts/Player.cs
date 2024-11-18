@@ -112,9 +112,10 @@ public class Player : MonoBehaviour
 
     IEnumerator ShieldPowerDown()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         shield.gameObject.SetActive(false);
         gameManager.UpdatePowerupText("");
+        gameManager.PlayshieldDown();
         hasShield = false;                
     }
 
