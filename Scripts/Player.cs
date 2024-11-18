@@ -115,6 +115,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1f);
         shield.gameObject.SetActive(false);
         gameManager.UpdatePowerupText("");
+        hasShield = false;                
     }
 
 
