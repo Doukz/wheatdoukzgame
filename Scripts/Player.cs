@@ -13,13 +13,14 @@ public class Player : MonoBehaviour
     private int lives;
     private int shooting;
     private bool hasShield;
-    
+
     public GameManager gameManager;
 
 
     public GameObject bullet;
     public GameObject explosion;
     public GameObject thruster;
+    public GameObject shield;    
 
     // Start is called before the first frame update
     void Start()
@@ -78,14 +79,18 @@ public class Player : MonoBehaviour
 
     public void LoseALife()
     {
-        GameObject.Find("GameManager").GetComponent<GameManager>().LivesScore(-1);
+
         
         if (hasShield == false)
         {
-            lives--;
-        } else if (hasShield == true)
+        GameObject.Find("GameManager").GetComponent<GameManager>().LivesScore(-1);
+        lives -= 1;
+        } 
+        
+        else if (hasShield == true)
         {
             //lose the shield
+        StartCoroutine(ShieldPowerDown());                 
             //no longer have a shield
         }
 
@@ -104,6 +109,14 @@ public class Player : MonoBehaviour
         thruster.gameObject.SetActive(false);
         gameManager.UpdatePowerupText("");
     }
+
+    IEnumerator ShieldPowerDown()
+    {
+        yield return new WaitForSeconds(1f);
+        shield.gameObject.SetActive(false);
+        gameManager.UpdatePowerupText("");
+    }
+
 
     IEnumerator ShootingPowerDown()
     {
@@ -142,7 +155,8 @@ public class Player : MonoBehaviour
                 case 4:
                     //shield
                     gameManager.UpdatePowerupText("Picked up Shield!");
-                    hasShield = true;
+                    shield.gameObject.SetActive(true);
+                    hasShield = true;               
                     break;
             }
             Destroy(whatIHit.gameObject);
