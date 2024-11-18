@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
 
     public AudioClip powerUp;
     public AudioClip powerDown;
+    
+    public AudioClip shieldUp;
+    public AudioClip shieldDown;
 
     public int cloudSpeed;
 
@@ -36,6 +39,8 @@ public class GameManager : MonoBehaviour
         InvokeRepeating("CreateEnemyOne", 1f, 3f);
 
         StartCoroutine(CreatePowerup());
+        Createcoin();
+        ScheduleNextCoinSpawn();
 
         CreateSky();
         score = 0;
@@ -99,6 +104,20 @@ public class GameManager : MonoBehaviour
     {
 
     }
+    void Createcoin()
+    {
+        if (coin != null)
+        {
+        Instantiate(coin, new Vector3(Random.Range(-12f, 12f), Random.Range(-8f, 8f), 0), Quaternion.identity);
+         ScheduleNextCoinSpawn();
+        }
+        
+    }
+    void ScheduleNextCoinSpawn()
+    {
+         randomInterval = Random.Range(6f, 8f);
+          Invoke("Createcoin", randomInterval);
+    }
 
     public void UpdatePowerupText(string whichPowerup)
     {
@@ -113,5 +132,15 @@ public class GameManager : MonoBehaviour
     public void PlayPowerDown()
     {
         AudioSource.PlayClipAtPoint(powerDown, Camera.main.transform.position);
+    }
+
+    public void PlayShieldUp() //this is the gainlife audio clip 
+    {
+        AudioSource.PlayClipAtPoint(shieldUp, Camera.main.transform.position);
+    }
+
+    public void PlayshieldDown()
+    {
+        AudioSource.PlayClipAtPoint(shieldDown, Camera.main.transform.position);
     }
 }
