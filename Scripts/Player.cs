@@ -157,6 +157,7 @@ public class Player : MonoBehaviour
                     //shield
                     gameManager.UpdatePowerupText("Picked up Shield!");
                     shield.gameObject.SetActive(true);
+                    gameManager.PlayShieldUp();
                     hasShield = true;               
                     break;
             }
